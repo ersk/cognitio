@@ -1,0 +1,16 @@
+
+BuildingInstance
+(
+
+)
+
+RoomInstance
+(
+	BuildingInstanceId
+)
+
+Citizen
+(
+	RoomInstanceId 	// person works in that room
+)
+
