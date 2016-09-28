@@ -1,0 +1,137 @@
+Mammals 
+Dog
+Wolf
+Cat
+
+Roar
+Lion
+Tiger
+Jaguar
+Leopard 
+
+Puma
+Cheetah
+Lynx
+Serval
+Ocelot
+Caracal
+
+Hyena
+Mongoose
+Aardwolf
+Meerkat
+
+Sea mammals
+Dolphin
+Whale
+Sealion/seal
+Walrus
+
+Monotreme
+Platapus
+Echidna - spined ant eater
+
+Tenrec
+Golden mole
+Elephant shrew
+Aardvark
+Hedgehog
+Shrew
+Mole
+
+Hyraxes
+Elephant
+Sirenia
+	Dugong
+	Manatee
+
+Rabbit
+Hare
+Pika
+Mouse
+Rat
+Vole
+Squirrel
+Beaver
+
+Reptile
+
+Amphibian
+
+Bird
+
+Fish
+
+Flightless
+Ostritch
+Sea
+Penguin
+
+
+
+
+
+
+
+Hunt
+	Get food to eat
+
+Hunters Hut
+	Catch bigger animals
+	Needs traps
+	Jobs
+		Hunter
+		Trapper
+		Trap Maker ???
+
+ 
+
+Training Pen
+	Trainer
+
+Trap
+	Food to cage then eat or tame
+
+Volatility
+	More volatile takes longer to tame
+Longer to train
+
+Meat
+Fur
+Bone
+Feathers
+Eggs
+Oil
+Poison
+
+
+
+
+
+
+Cavalry
+---------------
+Horse		+1 Fear
+Zebra		+1 Fear +1 Volatile
+Camel		+1 Fear + 1 Endurance
+Elephant	+3 Fear +1 Volatile
+Stag
+
+Gullinburst (Boar) Gullinbur
+Habrok (Hawk)
+Warg (Wolf)
+Rasavelg (Eagle)
+Hiderrun (Goat)
+
+Beasts
+-----------------
+http://en.wikipedia.org/wiki/Category:Creatures_in_Norse_mythology
+Draug (Undead)
+Garm (Great Dog)
+Hagufa (Sea Monster)
+Jormugand (Sea Serpent)
+Wight (Spirit)
+Lindworm (Snake)
+Wraith (Warden Spirit / Follower)
+
+

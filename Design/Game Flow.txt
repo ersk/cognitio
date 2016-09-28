@@ -1,0 +1,72 @@
+
+
+	
+	
+	
+	Game Flow
+
+Free jobs
+Gather wood
+Gather stone
+Generate ideas 
+Research ideas
+
+
+Population growth - idea
+More food tip
+Good morale tip
+Housing idea? 
+
+Population
+============================
+Housing 		- buildings
+Food			- stores
+Drink			- stores
+Morale			- settlement
+Threat Level	- calcuate from surroundins & army size
+Crime Rate		- army size / jails
+Jobs			- buldings
+
+Economy?
+
+
+Prioritisation idea
+
+Public happiness
+Same sex marriages
+
+Law
+Army/Scouting/Movement
+Diplomacy (diplomacy module)
+Trade (Trade module)
+Resources (priority module, accountant module)
+
+Settlement
+Buildings/build
+Resources
+
+Notifications
+Messenger boys as a job
+
+
+
+Unit designer module
+Select items from blueprint
+Select training regimes
+Select man power
+Unit blueprint created
+
+unit creator module
+Select unit
+Select how many
+Estimated build time
+Priority
+Already created items list
+Resources needed
+
+Blueprints need paper
+Allow trade of technologies
+Item built quicker
+
+
+

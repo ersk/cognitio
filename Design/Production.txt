@@ -1,0 +1,80 @@
+
+5 log -> 4timber
+logs -> timber
+base time 246 minutes
+
+5men
+
+246 / 5 = 50 minutes
+
+man 2* wood		 +5%
+man 2* wood		 +5%
+man 3* wood		+10%
+
+
+50m -> 46m
+6.6 average bonus speed from skill
+
+process
+	start time
+	end time
+	
+if man power changes
+	calculate % done
+	then 246 * percent => 123 (50%)
+	then same calculation on remaining processing time
+
+	
+	
+	
+	
+	
+	
+	
+Gathering & Production 
+
+Job Skill Level
+2 days each level
+
+1	2				
+2	4
+3	6
+4	8
+5	10
+
+2% efficiency each level
+
+Oak Tree
+1 Lumberjack cuts down 10 wood
+10 wood > 5 timber
+50 timber > house (5 turns) - 5 workers = 100 build time - max 6 workers
+
+Construction worker = 20 build power per turn
+21
+22
+23
+24
+25
+5% each rank
+
+
+Wood = 50 space
+
+
+Storehouse/Warehouse
+
+So warehouse = space
+Wood warehouse = space/2
+
+
+Woodhouse 2000 = 80 wood
+	Resource allowed = wood
+	Total resource space = 2000
+	Resource space = 110% - 200%
+	
+100/2 = 50 // 200%
+100/2.5 = 40 // 250%
+
+
+A resource may have X uses.
+FOr instance a hammer may be needed to smith a sword. THe hammer can be used X times before it is destroyed.

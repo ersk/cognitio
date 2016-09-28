@@ -1,0 +1,212 @@
+Weapons
+
+Sling Club - stick with a stone on a leash
+Atlatl - small stick to throw small spears/large arrows
+
+Spear / javelin
+
+Boomerang / throwing stick
+
+Club
+	With spikes
+
+Mace
+
+
+
+
+Weapons
+======================
+
+Slash (+1 Attack to light armour)
+---------------
+Daggar
+Short Sword
+Small Sword
+Two handed
+Bastard Sword
+Long Sword
+Great Sword
+Swordstaff
+Backsword
+	-Sabre
+	Machete
+Wavy Sword/flame sword
+
+Thrust (chance to ignore Armour)
+---------------
+Short Bow		
+Bow
+Long Bow
+Recurve Bow
+Fire Bow		+ROF
+
+Crossbow
+Repeating Crossbow
+
+Caltrop			+2 Attack against Charge
+Pike			+3 Attack against Charge
+Spear			+2 Attack against Charge / +1 Attack against cavalry
+Lance			+3 Charge
+
+
+Throwing Spear
+Javalin
+Throwing dagger/hammer/axe
+
+
+
+
+
+Crush (+1 Attack to heavy armour)
+----------------
+War Scythe 		
+Slingshot
+Axe
+Throwing Axe
+War Hammer
+Mace
+
+
+Stats
+---------------
+Damage
+Construction Time
+Resource Cost
+Research 
+Stat Modifiers
+
+
+
+
+
+
+
+
+
+Training
+
+
+
+Invisibility
+======================
+Specific Terrain
+All Terrain
+When Retreating
+In Buildings
+
+Building Sabotage
+Resource Sabotage
+
+
+
+Scouting
+======================
+Line of Sight
+Unit Report
+Building Report
+
+
+Traits
+======================
+Courage 			+1 Courage
+Fearless 			+2 Courage
+
+Death Masks			+1 Fear
+
+No Discipline		Always Attacks
+Berserk				Doesn't retreat
+
+Charge 				+1 Charge
+Rage				+2 Charge
+
+Agility				+1 Speed
+Sprinter			+2 Speed
+
+Endurance			+1 Stamina
+Marathon Runner		+2 Stamina
+
+Weapon Master  		+1 Attack
+Advanced Weapon 	+2 Attack
+Weapon Expert		+3 Attack
+
+Tough 				+1 Defence
+Defender			+2 Defence
+Feel No Pain		+3 Defence
+
+
++ toughness ??
+
+
+Swimming (Additional speed in water)
+
+Speed on terrain
+
+
+
+
+
+
+Unit Types
+======================
+
+Base Types
+-----------------
+Infantry
+Cavalry
+Vehicle
+Ranged
+
+
+Special Types
+-----------------
+Command
+Hero
+Assasin
+Bodyguard 
+
+
+Rock Paper Scissors
+-----------------
+Bodyguard > Assasin > Hero
+
+Spearmen > Cavalry > Ranged > Spearmen
+
+
+Stats
+-----------------
+Charge
+Attack
+
+Defence
+Toughness
+
+Speed
+Stamina
+
+Courage
+Fear
+
+Abilities
+Weapons
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

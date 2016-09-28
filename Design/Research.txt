@@ -1,0 +1,201 @@
+Research & Development
+
+
+
+Learning & Research
+
+Research Speed = Default based on Race (intelligence)
+
+
+Ideas 
+	They create a new research path
+	E.g. “” Walk on Water” > opens research to boats
+	Ideas happen early and are quite random - still based on knowledge level
+
+Research Buildings
+	Exploratory Research => Technology & Ideology
+		
+		Anything
+			Economic
+				Consumable
+					Farming
+						Grain
+						Fruit
+						Veg
+							Individual
+						Other?
+							Cotton
+					Ranching
+				
+			Military
+				Soldiering
+				Vehicles
+				
+			Imperial
+				Buildings
+				Research
+				Culture
+				Morale
+		
+		
+		Choose focus
+		More focus = more time to research
+	
+<Building>
+	Improvement research => Bonuses
+	Implementation of technology
+	
+Smithy
+	Weapon Smithy
+		Sword Smithy
+			Longsword Smithy
+
+More specific building 
+	More efficient
+	Quicker at researching
+	
+Change building into research mode?
+
+Reasearch
+	Production Speed
+	Production Quantity
+	Worker Slots
+
+Research
+	Quicker Processing Time
+More Efficient/Produce More Of Item
+Use Less Fuel
+Require Less Staff/People
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Diplomatic research and strategy
+Language
+Trade
+Diplomacy Actions
+
+
+
+
+
+
+Writing
+Language
+
+Entertainment/Morale
+Art		
+Statue/Sculpture
+Music		
+Band Stand
+Philosophy
+	Research
+	+intelligence
+Mathematics	
+Construction
+Psychology	
++Morale
+Morale Mandates
+Science
+	Biology > Health / Farming/ Cooking
+	Physics > Military
+	Chemistry > Metals
+
+
+
+
+
+Clothing
+
+Population in Colder climates have a need/higher demand for more clothes
+
+Cotton > Cotton 
+Flax > Linen 			- good for warm weather (breathable) 
+
+Plantation = produces flax
+Spinners = flax > linen
+Clothier = linen > linen clothes
+
+Ranch (sheep) = raw wool
+Spinners =  raw wool > wool
+ 
+
+Tangoloff = lofftus > lofftus thread > lofftus clothes  - bright? / warm /flammable material?
+
+
+Multiplier for having clothes + soap?
+
+
+Plant fibers = bamboo, hemp, corn, nettle, and soy fiber.
+
+Animal = alpaca, angora, mohair, llama, cashmere, and silk.
+Rare animal = camel, yak, possum, musk ox, cat, dog, wolf, rabbit, or buffalo hair
+
+
+
+
+
+
+
+Drugs
+
+Laws against (or not)
+Boosts / consequences(addictiveness/health)
+Trade
+Prductioin
+As a religious pillar / mandate
+Lucivadum -Night glow carrot - Night Vision improved
+	inhaled, injected, smoked, consumed
+	
+	Depressants
+		Alcohol
+Stimulants
+	Caffeine, Nicotine 
+Halucinagens
+	Short morale boost
+Opioid
+	Pain relief
+	Morale boost
+	Heroin, morphine,codeine
+Amphetamines
+	Strength & Stamina
+	
+
+
+Screen Navigation
+
+Research
+Military
+	Armies
+	Assembly - creation of units
+Law
+	Laws
+Tax
+Diplomacy
+	Trade
+	Agreements
+	Negotiation
+Settlements
+	Population
+	Resources
+	Garrison
+	Trade
+	Buildings
+
+
+
+
+

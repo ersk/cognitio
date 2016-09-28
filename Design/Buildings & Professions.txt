@@ -1,0 +1,422 @@
+
+
+Resource
+Wood
+Metal
+Mineral
+Trade & Storage
+Order
+	Maritime
+Military & Fortification
+Law 
+Construction & Transport
+Wellfare
+	Health
+	Entertainment & Art
+Religion & Culture
+Research & Knowledge
+
+Size / Progression of a building?
+
+Hut >>> Lodge >>> House >>> Shop >>> Workshop >>> Factory
+
+Lumberjack Hut
+Lumberjack Lodge
+Lumberjack House
+Lumberjack Shop
+Lumberjack Workshop
+Lumberjack Factory
+
+
+Erskine Lumberjack Hut (self named) 
+	Construction
+		Resource
+		Time
+		Max Workers
+		Space
+	Usage
+		Job Types
+			Profession
+			Input resource list
+				Resource
+				Count
+			Output resource list
+				Resource
+				Count
+			Job slots
+		Storage (one for input, one for output?)
+	Culture
+
+
+Building Space
+	House 5
+	Warehouse 25
+	Farm 200
+building space removes green land -> decreases morale
+
+
+
+
+Wood
+
+Lumberjack’s Hut
+	Lumberjack (> gathers wood)
+	Tree Tapper (> gathers resin)
+Sawmill
+	Saw Machinist (tree > timber) or more wood?
+Chip Shop 
+Chipper (tree > chipwood) use it in farms / preven nitrates? / use as fuel
+Papermill 
+Paper Maker (chipwood -> Paper)  *** parchment + papyrus? ***
+Printer?
+
+Clamper
+Wood -> Charcoal
+	Forge/smelter
+	Medicine
+	Fertiliser
+
+Barrel making (drink / good)
+
+
+Carpenters’ Workshop
+	Carpenter (Timber > ?????)
+
+
+
+Metal
+
+Smithy
+	Weaponsmith
+	Toolsmithy
+Forge
+	Forge Operator
+Armoury
+	Armourer 
+Smelter
+	Smelter
+Furnace
+	Furnace Operator
+Toolmakers
+	Toolmaker
+
+Mine
+	Miner
+	Cart Puller
+	Demolition Expert
+
+
+Mineral
+
+Flint Knapping
+Jem Cutters
+	Jeweler (Gems > Jewels)
+Pottery <House> 
+	Potter
+		Clay > Pottery
+Masons’ Workshop
+	Mason (Stone > ?????)
+
+Glassworks 
+	Spectacle Maker
+		Glass -> Spectacles (for opticians)
+	Telescope Maker
+		Glass -> Telescope (1608) (for naval & army commanders)
+Quarts?
+Sand?
+
+
+Salt
+Saltpeter
+
+Pearl
+
+
+Trade & Storage
+
+Market/Marketplace
+	Trade commerce
+Warehouse / Storehouse
+
+Bank
+	commerce
+
+
+
+
+
+
+
+
+
+
+Maritime
+
+Boat Yard
+	Boatwright (timber)
+Ship Yard
+	Shipwright (timber + rope + sail > boat)
+	Naval Architect (> ship blueprint)
+
+Dockyard (boat warehouse?)
+	Moor ships and boats
+
+Fishery Dock (warehouse for fishing boats + fish?)		
+-> Fish
+Fisherman
+
+Lighthouse
+	Navigation bonuses ?
+		Speed bonus moving to and from tile for own ships
+Quay/Port/Dock
+In a harbour toforloading andunloading ships
+Harbour 
+Sea that comes inland and and shelters boats. Can be man made
+Harbour Office/ Marina Office
+	Harbour master
+		Does what? bonuses?
+Drydock
+For ship repairs (to hull)
+Pier/Jetty
+Small constructs build out into sea
+
+
+
+
+
+Military & Fortifications
+
+Scout hut
+	Allows scouting
+
+Barracks/Drill Yard
+	Drill Master
+Command Centre- Command HQ
+Archery Range 
+
+Espionage Academy 
+Workshop - Siege Workshop
+		 - Vehicle Workshop
+Provisions building
+	Better organisation of food for excursions
+
+Vehicles for transport?
+
+Jousting Arena?
+Arena
+Coliseum
+
+
+Castle / Fort
+Walls / Palisade
+Towers
+Gate
+	Can have multiples
+Spikes
+Hills
+Moat
+Siege emplacements
+Oil / Tar?
+
+
+
+
+Law & Order
+
+Gallows
+Executioner (executes executions)
+[Reduces crime rate]
+Jail
+	Guard (x guars for x captives)
+	[Reduces crime rate]
+
+Court
+	Judge
+	[Reduces crime rate]
+Police Station
+	Sheriff
+	Police
+	[Reduces crime rate]
+Bailiwick
+Exchequer  
+Collect more/all tax? Debtory?
+Chancery (Writing Office)
+	Chancellor / Minister?
+	
+Settlement Hall
+Council
+Government building
+Manor > Keep	Settlement HQ / Lords House
+
+
+
+Construction & Transport
+
+Map Room
+	Cartographer
+		Paper -> Map
+
+Drawing Office
+	Architect
+
+Architect (maths/art/design) 
+	Creates building blueprint
+	Building advancements must first be researched (at relevant building)
+		I.e. weaponsmithy for swordsmithy
+
+Construction Yard
+Builders (various > Construct buildings / roads)
+Architect (Research > Building Blueprints)
+
+Road Builders?
+Fortifications
+Architects’ Office
+
+
+
+
+
+
+
+
+
+Health
+
+Dairy Farm (Cows) 	-> Beef, Milk
+
+Orchard				-> Fruit
+Vegetable Field		-> Vegetable
+Chicken Coop 		-> Chicken, Egg
+Pigsty				-> Pork
+Grain Field 		-> Bread, Ale
+Sheep				-> Lamb, Wool
+
+Mill		
+Bakery
+Ranch
+Butcher
+Hunter
+	Hunter
+	Trapper
+Furrier
+
+Vineyard
+Wine press
+Inn
+Tavern
+	Bar Maid (Drink(alch) > Morale)
+Well/Fountain		Water
+
+
+Weavers’ Hut
+Clothes maker
+Tannery
+Bag making
+Ship sales?
+Shoe Shop
+Cobbler (sandals, clogs, leather boots/shoes)
+Rope
+
+
+Apiary
+	Honey
+	Wax
+Wax > Candle
+Silk
+
+
+Stables - 
+Zoo - Beastry
+Catching
+Taming
+Breeding
+Training
+	War
+	Hauling/Pulling
+	Riding
+
+
+
+Surgery
+Clinic
+Hospital - Wellbeing / Healing
+Bathing
+Almshouse 
+	For poor people
+Opticians
+	Optician
+		Output -> Morale
+
+
+
+
+
+
+
+Religion & Culture
+
+Church >>> Cathedral - Faith? / Temple
+Temple
+	Cleric (religious person)
+Cemetery (religion)
+	Undertaker
+	Grave digger
+
+
+
+Beacon - Communication / Tower
+Homing Loft (pigeon)
+
+Noria
+	Dessert > Growable land
+
+
+
+Research & Knowledge
+
+
+School
+	Teacher 
+University
+	Professor
+Research Facility
+	Inventor
+	Researcher
+Library
+	Librarian (Books > Knowlege)
+Laboratory 
+
+
+
+
+
+
+
+
+
+
+Entertainment & Art
+
+Astronomy tower	
+	magic/myth
+	Power of the stars?
+
+Music / Band stand
+	Entertainment
+War march
+
+Studio
+	Artist 
+		Output -> Design
+Statue (requires design from artist)
+Sculpture (requires design from artist)
+Monument (requires design from artist)
+
+Garden / Park
+	Gardener
+		Output -> Morale
+
+
+
+
+

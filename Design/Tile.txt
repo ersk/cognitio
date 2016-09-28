@@ -1,0 +1,51 @@
+Resources
+	Trees
+		Trees grow back at a certain rate?
+	Animals
+		migration?
+	Minerals
+	
+Defensive Bonuses
+Buildable land
+	Mountains very limited building space
+River Lake Sea
+Climate
+Artifacts
+
+Beauty - Morale bonuses?
+
+
+
+Terrain
+======================
+Dessert
+Jungle
+Woodland
+Forest
+Sea
+Lake
+River
+
+
+Biomes / Climates
+
+Tropical Wet
+Tropical Wet & Dry
+
+Arid 
+Semiarid
+
+Mediterranean
+Humid Subtropical
+Marine West Coast
+
+Humic Continental
+Subarctic
+
+Tundra
+Ice Cap
+
+Highland/Alpine
+
+
+

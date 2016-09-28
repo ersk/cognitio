@@ -1,0 +1,224 @@
+Food  and drink
+
+Population has a need for food
+Food taken on military excursions
+Food send to excursion camps?
+Quantity / variety / quality
+
+Base quality
+Processing improves quality 
+Processing improves quality - (extract more from source etc)
+
+Reduce quantity for quality > chuck away rubbish?- animal feed
+
+Lack of food
+	Morale
+	Lack of energy
+		Poor military performance
+		Poor workforce performance
+
+
+Camp
+	Gather Food
+		Gatherable food? - very limiting quantity
+
+Farm
+	Fruit
+		Nuts
+			Acorn (oak)
+		Grain
+			Wheat, oat, rice, barley, corn
+		Soft Fruit
+	
+Mushrom
+Magic
+Drug
+
+
+
+
+
+
+LARGE BERRY
+Banana
+Guava
+Kiwi
+Lucuma
+Pomegranate
+Coconut
+Avocado
+Melon (water) berry
+
+BERRY
+Blackcurrant
+Redcurrant
+Blueberry
+Cranberry
+Lingonberry
+Bilberry
+Gooseberry
+Elderberry
+Grape
+
+MULTI BERRY
+Blackberry
+Boysenberry
+Raspberry
+Mulberry (multi berry?)
+Cloudberry
+
+CITRUS
+Grapefruit
+Lemon
+Lime
+Orange
+Mango
+Citron
+Bloodrange (blood orange - real)
+Tangering 
+Pomelo
+Rangpur
+Shonan (gold)
+Yuzu
+Ugli - turns people ugly - bad moral?  disease?
+
+DRUPE
+Mango
+Cherry
+Mesocarp (almond?)
+Apricot
+Damson
+Nectarine
+Peach
+Plum
+Olive
+
+ACCESSORY
+Fig
+Pineapple
+Strwberry
+Apple
+Pear
+Quince
+Rowan
+Medlar
+Loquat
+Cotoneaster
+Crategus
+Pyracantha
+Toyon
+Whitebeam -magic?
+
+
+
+
+
+AXILLARY BUD
+Cabbage
+Kale
+Brussel sprouts
+Kohlrabi
+Cauliflower
+Broccoli
+
+PODS
+Beans
+Peas
+
+FRUIT VEGETABLE
+Aubergine (eggplant)
+Tomato
+Cucumber
+Pumpkin
+Squash
+Marrow
+Zucchini (Courgette)
+Pepper
+
+BULB
+shallot
+Garlic
+Onioin > list
+
+TUBERS
+Carrot
+Parsnip
+Yam
+Radish
+Turnipapa
+Potato
+Beetroot
+Sugarbeet (sugar?)
+
+TUBEROOTS
+Sweet potato
+Dahilas
+Daylilly
+Cassava/Yuca
+
+RHIZOMES
+Ginger - food/medicine
+Iris
+Valilly (lily of the valley)
+Canna
+
+STEMS
+Leek
+Scallion(Spring onion)
+Celtuce
+Asparagus
+Rhubarb
+
+LEAVES
+Spinach
+Lettuce
+Celtuce
+Vine Leaf?
+Broccoli leaves?
+
+
+ 
+
+
+
+
+
+
+	
+
+Ranch
+	Cheese, milk, yogurt
+	Meat
+	Eggs
+	Leather
+	Wool
+	
+	
+
+Beast Pen
+
+Fishery
+	Fish
+		Shark
+	Shellfish
+		Crab
+	Mammels
+		Dolphin
+		Whale
+		Seals, sealion, walrus
+	Seaplant
+		Seaweed
+			kelp
+		[breath underwater]
+		[swim faster]
+
+Insects
+		Bees
+			Honey
+		Spider/lavae?
+			Silk
+
+
+
+
+

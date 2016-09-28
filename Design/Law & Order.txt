@@ -1,0 +1,52 @@
+Law & Order
+
+Council Building
+Councilors
+	Can research laws
+	Implement laws quicker
+
+Implement Law (turned on in x turns)
+Unimplement Law (turned off in x turns)
+
+Have a vote - Settlement / Kingdom
+	If implemented, has a lot less less negative effects. Possibly postive?
+
+Naming
+Mandate?
+Decree?
+Law?
+
+Gives bonuses, possibly negatives
+More laws applied = exponential negatives
+Jails/police lower those negatives
+
+List
+	Military
+Conscription - mandatory recruitment into army
+Order
+	Punishment
+Drugs
+Culture
+	Outlaw a religion
+
+Punishment
+	Jail
+	Gallows
+	Labor Camp
+	Stocks
+
+government vs people?
+
+
+
+Laws
+	Civilians not allowed weapons
+		Reduces crime but negatives against invaders
+	Same sex marridge
+		Public happiness
+		Less growth
+	Slavery
+	Punishment for crimes
+	Working hours / Rest days
+Eco
+	Plant tree to cut down tree.
