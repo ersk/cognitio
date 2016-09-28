@@ -1,0 +1,1 @@
+C:\Projects\Git\cognitio\Source\Console\bin\Debug\Console.exe.config
