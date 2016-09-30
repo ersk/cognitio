@@ -1,4 +1,29 @@
 
+Stats
+============================
+Stamina
+Courage
+Fear
+Attack
+Defence
+Toughness
+Speed/Agility
+
+
+Charge
+Attack
+
+Defence
+Toughness
+
+Speed
+Stamina
+
+Courage
+Fear
+
+
+
 
 Industrial Human
 Nomad Human	 - hunter / gatherer

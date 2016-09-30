@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuildingTechnology.cs" />
     <Compile Include="Building.cs" />
     <Compile Include="Citizen.cs" />
     <Compile Include="Civilisation.cs" />

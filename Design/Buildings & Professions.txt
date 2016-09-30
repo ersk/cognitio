@@ -60,14 +60,28 @@ building space removes green land -> decreases morale
 Wood
 
 Lumberjack’s Hut
-	Lumberjack (> gathers wood)
-	Tree Tapper (> gathers resin)
+	Lumberjack Room
+		Job Slots
+		Process (location(tree) => logs)
+	Tree Tapper Room
+		Job Slots
+		Process (location(tree) => tree sap)
+Sawshop
+	Timber Maker Room
+		Job Slots (many)
+		Process (logs => timber)
 Sawmill
-	Saw Machinist (tree > timber) or more wood?
+	Requires 
+		location(river)
+	Circular Saw Room
+		Job Slots
+		Process (logs => timber)
 Chip Shop 
-Chipper (tree > chipwood) use it in farms / preven nitrates? / use as fuel
+	Chipper Room
+		Job Slots
+		Process(tree > chipwood) use it in farms / preven nitrates? / use as fuel
 Papermill 
-Paper Maker (chipwood -> Paper)  *** parchment + papyrus? ***
+	Paper Maker (chipwood -> Paper)  *** parchment + papyrus? ***
 Printer?
 
 Clamper
@@ -247,6 +261,8 @@ Settlement Hall
 Council
 Government building
 Manor > Keep	Settlement HQ / Lords House
+Resource Acountant (profession)
+	Display counts of resources
 
 
 

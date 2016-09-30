@@ -9,6 +9,7 @@ namespace Model
     class Building
     {
         public List<Module> Modules { get; set; }
+        public uint Space { get; set; }
     }
 
 
