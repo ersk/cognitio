@@ -324,6 +324,12 @@ Tavern
 Well/Fountain		Water
 
 
+reptile/amphibian house
+	poison/venom extraction
+	scales
+	leather?
+	egg collection
+
 Weavers’ Hut
 Clothes maker
 Tannery
