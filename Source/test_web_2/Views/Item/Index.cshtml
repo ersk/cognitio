@@ -1,0 +1,35 @@
+﻿@model List<Cognitio.Model.Item>
+
+@using Cognitio.Model
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Cognitio</title>
+</head>
+<body>
+
+
+    @ShowTree(Model);
+
+    
+
+    @helper ShowTree(IEnumerable<Item> children)
+        {
+            <ul>
+                @foreach (Item child in children)
+                {
+                    <li>
+                        @child.Name
+                        @if (child.Children.Any())
+                        {
+                            @ShowTree(child.Children)
+                        }
+                    </li>
+                }
+            </ul>
+        }
+
+
+</body>
+</html>

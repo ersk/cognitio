@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model
+namespace Cognitio.Model
 {
     class AnimalFactory
     {
@@ -39,7 +39,7 @@ namespace Model
             Item dairyItem = new FoodItem()
             {
                 Name = "Dairy",
-                ItemType = animalItem
+                Type = animalItem
             };
 
             // food/animal/dairy/milk
@@ -49,14 +49,13 @@ namespace Model
                 Size = 7,
                 Weight = 14,
                 Value = 4,
-                Type = FoodTypeEnum.Animal,
-                ItemType =  dairyItem
+                Type = dairyItem
             };
 
             // food/animal/dairy/milk/cow_milk
             Item goatMilkItem = new FoodItem()
             {
-                ItemType = milkItem,
+                Type = milkItem,
                 Name = "Goat Milk",
                 Value = 4,
                
@@ -140,7 +139,6 @@ namespace Model
         // carrot = 4
         // pig leg = 15
         public int Value { get; set; }
-        public FoodTypeEnum Type { get; set; }
     }
 
     // food/animal/dairy/milk/cow_milk
