@@ -1,0 +1,46 @@
+﻿@model List<Cognitio.Model.Item>
+
+@using Cognitio.Model
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Cognitio</title>
+</head>
+<body>
+
+    <div class="itemHierarchy">
+        @ShowItemHierarchy(Model);
+    </div>
+
+    
+
+    @helper ShowItemHierarchy(IEnumerable<Item> children)
+        {
+            <ul>
+                @foreach (Item child in children)
+                {
+                    <li>
+                        @child.Name
+
+                        @if(child.Size != 0 && child.Weight !=0)
+                        {
+                            @Html.Raw("&nbsp;")
+                            @("(" + child.Size)
+                            @Html.Raw("&#9679;")
+                            @(", " + child.Weight)
+                            @Html.Raw("&#9648;")@:)
+                        }
+
+                        @if (child.Children.Any())
+                        {
+                            @ShowItemHierarchy(child.Children)
+                        }
+                    </li>
+                }
+            </ul>
+        }
+
+
+</body>
+</html>

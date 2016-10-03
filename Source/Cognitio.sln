@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Console", "Console\Console.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{106AA168-FB9E-4352-BAF3-E47132CEB3C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test_web_2", "test_web_2\test_web_2.csproj", "{BF22A269-5C91-4BC0-9724-3BAA5BEE652C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EditorWeb", "EditorWeb\EditorWeb.csproj", "{BF22A269-5C91-4BC0-9724-3BAA5BEE652C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

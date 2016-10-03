@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="NDatabase3">
+      <HintPath>..\packages\NDatabase.3.8.0\lib\net45\NDatabase3.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,6 +47,7 @@
     <Compile Include="Building.cs" />
     <Compile Include="Citizen.cs" />
     <Compile Include="Civilisation.cs" />
+    <Compile Include="Group\ItemGroup.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="LivingStats.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -51,6 +55,13 @@
     <Compile Include="Settlement.cs" />
     <Compile Include="SkillLevel.cs" />
     <Compile Include="Tile.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Control\" />
+    <Folder Include="NewFolder1\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
