@@ -84,7 +84,7 @@ namespace Model
     class Item 
     {
         public string Name { get; set; }
-        public ItemType ItemType { get; set; }
+        public Item ItemType { get; set; }
         //public string Ancestory { get; set; } // build up ancestory details as string?
         public uint Size { get; set; } // space the item takes up in storage
         public uint Weight { get; set; }

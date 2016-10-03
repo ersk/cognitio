@@ -6,6 +6,89 @@ using System.Threading.Tasks;
 
 namespace Model
 {
+    class AnimalFactory
+    {
+        public static Animal Create()
+        {
+            Animal animal = new Animal()
+            {
+                Attack = 3,
+                Charge = 1,
+                Courage = 5,
+                Defence = 6,
+                Fear = 0,
+                Speed = 7,
+                Stamina = 8,
+                Toughness = 2,
+
+
+            };
+
+            Item foodItem = new FoodItem()
+            {
+                Name = "Food",
+            };
+
+            // food/animal
+            Item animalItem = new FoodItem()
+            {
+                Name = "Animal",
+            };
+
+            // food/animal/dairy
+            Item dairyItem = new FoodItem()
+            {
+                Name = "Dairy",
+                ItemType = animalItem
+            };
+
+            // food/animal/dairy/milk
+            Item milkItem = new FoodItem()
+            {
+                Name = "Milk",
+                Size = 7,
+                Weight = 14,
+                Value = 4,
+                Type = FoodTypeEnum.Animal,
+                ItemType =  dairyItem
+            };
+
+            // food/animal/dairy/milk/cow_milk
+            Item goatMilkItem = new FoodItem()
+            {
+                ItemType = milkItem,
+                Name = "Goat Milk",
+                Value = 4,
+               
+            };
+
+            animal.MilkOutput = new List<ItemCount>()
+            {
+                new ItemCount
+                {
+                    Item = goatMilkItem,
+                    Count = 6
+                }
+            };
+
+
+
+
+            animal.ShearingOutput = new List<ItemCount>()
+            {
+                new ItemCount
+                {
+                    Item = goatMilkItem,
+                    Count = 6
+                }
+            };
+
+            return animal;
+
+
+        }
+    }
+
     class Animal : LivingStats
     {
         // 4 llama milk? 4 milk?
@@ -17,7 +100,10 @@ namespace Model
         // wool
         public List<ItemCount> ShearingOutput { get; set; }
 
-        //venom
+        // Weapon/Accessory/Poison/SnakeVenom/CobraVenom
+        // amount - 0.2 of a vile
+        // time to take effect
+        // effect? kills, makes ill etc
         public List<ItemCount> PoisonOutput { get; set; }
 
         /*
@@ -30,9 +116,11 @@ namespace Model
          * oil
          * poison
          */
+        // Clothing/Armour/LeatherArmour/LegLeatherArmourPiece
         public List<ItemCount> SlaughterOutput { get; set; }
 
         public uint Volatility { get; set; }
+        public uint BreedRate { get; set; }
     }
 
     public enum FoodTypeEnum
