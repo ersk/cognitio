@@ -7,36 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cognitio.Model
+namespace Cognitio.Model.Object
 {
-    public class ItemFactory
+    public class ItemManager
     {
-        public static List<Item> GetItems()
+        public static List<ItemObject> GetItems()
         {
-            string dbFilePath = @"C:\Users\Ersk\Cognitio\cognitio.db";
-
-            IOdb db = OdbFactory.Open(dbFilePath);
-
-            //List<Item> items = CreateSomeItems();
-            //ItemGroup group = new ItemGroup()
-            //{
-            //    Children = items
-            //};
-            //db.Store(group);
             
-
-            //db.Dispose();
-
-            //db = OdbFactory.Open(dbFilePath);
-
-            //var query = db.Query<Item>();
-            //query.Descend("Name").Constrain("Food").Equal();
-            //Item food = query.Execute<Item>().FirstOrDefault();
-            ItemGroup group2 = db.Query<ItemGroup>().Execute<ItemGroup>().First();
-
-            db.Dispose();
-
-            return group2.Children;
         }
 
         private static List<Item> CreateSomeItems()
@@ -235,13 +212,5 @@ namespace Cognitio.Model
         public uint Count { get; set; }
     }
 
-    public class Item
-    {
-        public string Name { get; set; }
-        public Item Type { get; set; }
-        //public string Ancestory { get; set; } // build up ancestory details as string?
-        public uint Size { get; set; } // space the item takes up in storage
-        public uint Weight { get; set; }
-        public List<Item> Children { get; set; }
-    }
+  
 }
