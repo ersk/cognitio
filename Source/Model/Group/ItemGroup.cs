@@ -9,6 +9,6 @@ namespace Cognitio.Model.Group
 {
     public class ItemGroup
     {
-        public List<ItemTypeObject> Children { get; set; }
+        public ItemObjectList Children { get; set; }
     }
 }

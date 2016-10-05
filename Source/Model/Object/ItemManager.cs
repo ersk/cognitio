@@ -20,6 +20,8 @@ namespace Cognitio.Model.Object
             IQuery query = db.Query<ItemGroup>();
             ItemGroup result = query.Execute<ItemGroup>().First();
 
+            db.Close();
+
             return result;
         }
 		
@@ -32,6 +34,8 @@ namespace Cognitio.Model.Object
             IQuery query = db.Query<ItemTypeObject>();
 			query.Descend("Name").Constrain(itemName).Equal();
             ItemTypeObject result = query.Execute<ItemTypeObject>().First();
+
+            db.Close();
 
             return result;
         }
@@ -47,6 +51,8 @@ namespace Cognitio.Model.Object
             query.Descend("Name").Constrain("Food").Equal();
             ItemObject result = query.Execute<ItemObject>().First();
 
+            db.Close();
+
             return result;
         }
 
@@ -55,8 +61,8 @@ namespace Cognitio.Model.Object
             ItemTypeObject root = ItemObject.CreateRootItemObjectType("_ROOT");
 
             #region items
-            ItemTypeObject vehicle = ItemObject.CreateRootItemObjectType("Vehicle");
-            ItemTypeObject food = ItemObject.CreateRootItemObjectType("Food");
+            ItemTypeObject vehicle = ItemObject.CreateItemObjectType("Vehicle", root);
+            ItemTypeObject food = ItemObject.CreateItemObjectType("Food", root);
 
             root.Children.Add(vehicle);
             root.Children.Add(food);
@@ -98,15 +104,14 @@ namespace Cognitio.Model.Object
             //#endregion
 
             string dbFilePath = Config.DatabaseFilePath();
-            IOdb db = OdbFactory.Open(dbFilePath);
 
             //db.Store(itemGroup);
             
         }
 
-        private static List<ItemTypeObject> BuildHierarchy(List<ItemTypeObject> items)
+        private static ItemObjectList BuildHierarchy(ItemObjectList items)
         {
-            List<ItemTypeObject> topItems = items.Where(i => i.Type == null).ToList();
+            ItemObjectList topItems = items.Where(i => i.Type == null).ToList();
 
 
 
@@ -119,9 +124,9 @@ namespace Cognitio.Model.Object
             return topItems;
         }
 
-        private static List<ItemTypeObject> BuildHierarchyLevel(List<ItemTypeObject> items, ItemTypeObject itemType)
+        private static ItemObjectList BuildHierarchyLevel(ItemObjectList items, ItemTypeObject itemType)
         {
-            List<ItemTypeObject> childItems = items.Where(i => i.Type == itemType).ToList();
+            ItemObjectList childItems = items.Where(i => i.Type == itemType).ToList();
 
             foreach (ItemTypeObject childItem in childItems)
             {

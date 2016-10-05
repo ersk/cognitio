@@ -1,6 +1,7 @@
 ﻿using NDatabase;
 using NDatabase.Api;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,16 +33,22 @@ namespace Cognitio.Model.Object
         }
     }
 
+
+
     public class ItemTypeObject
     {
-        public string Name { get; set; }
-        public ItemTypeObject Type { get; set; }
-        public List<ItemTypeObject> Children { get; set; }
+        private string name;
+        public string Name { get { return name; } }
+        private ItemTypeObject type;
+        public ItemTypeObject Type { get { return type; } }
+
+        public ItemObjectList Children { get; set; }
 
         protected internal ItemTypeObject(string name, ItemTypeObject type)
         {
-            Name = name;
-			Children = new List<ItemTypeObject>();
+            this.name = name;
+            this.type = type;
+			Children = new ItemObjectList();
         }
 
         internal void Store()
@@ -49,6 +56,7 @@ namespace Cognitio.Model.Object
             string dbFilePath = Config.DatabaseFilePath();
             IOdb db = OdbFactory.Open(dbFilePath);
             db.Store(this);
+            db.Close();
         }
 
         public static ItemTypeObject CreateRootItemObjectType(string name)
@@ -66,6 +74,96 @@ namespace Cognitio.Model.Object
 
 
     }
+
+
+
+
+
+
+
+    public class ItemObjectList : CollectionBase
+    {
+        public ItemObjectList()
+        {
+            //
+            // TODO: Add constructor logic here
+            //
+        }
+        #region Properties
+        /// <summary>
+        /// Gets/Sets value for the item by that index
+        /// </summary>
+        public ItemTypeObject this[int index]
+        {
+            get
+            {
+                return (ItemTypeObject)this.List[index];
+            }
+            set
+            {
+                this.List[index] = value;
+            }
+        }
+        #endregion
+
+        #region Public Methods
+        public int IndexOf(ItemTypeObject itemTypeObject)
+        {
+            if (itemTypeObject != null)
+            {
+                return base.List.IndexOf(itemTypeObject);
+            }
+            return -1;
+        }
+        public int Add(ItemTypeObject itemTypeObject)
+        {
+            if (itemTypeObject != null)
+            {
+                int returnInt = this.List.Add(itemTypeObject);
+                Store();
+                return returnInt;
+            }
+            return -1;
+        }
+        public void Remove(ItemTypeObject itemTypeObject)
+        {
+            this.InnerList.Remove(itemTypeObject);
+            Store();
+        }
+        public void AddRange(ItemObjectList collection)
+        {
+            if (collection != null)
+            {
+                this.InnerList.AddRange(collection);
+            }
+            Store();
+        }
+        public void Insert(int index, ItemTypeObject itemTypeObject)
+        {
+            if (index <= List.Count && itemTypeObject != null)
+            {
+                this.List.Insert(index, itemTypeObject);
+            }
+            Store();
+        }
+        public bool Contains(ItemTypeObject itemTypeObject)
+        {
+            return this.List.Contains(itemTypeObject);
+        }
+        #endregion
+
+        private void Store()
+        {
+            IOdb db = OdbFactory.Open(Config.DatabaseFilePath());
+            db.Store(this);
+            db.Close();
+        }
+    }
+
+
+
+
+
 
 }
 

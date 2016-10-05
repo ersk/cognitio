@@ -24,7 +24,7 @@ namespace Cognitio.EditorWeb.Controllers
 			// get root object (pass in null)
 			ItemTypeObject rootItem = ItemManager.GetItemTypeObject(null);
 
-            //List<ItemTypeObject> a = new List<ItemTypeObject> { rootItem };
+            //ItemObjectList a = new ItemObjectList { rootItem };
             return View(rootItem);
         }
 
