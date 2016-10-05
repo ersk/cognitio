@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cognitio.Model.Object;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -46,7 +47,7 @@ namespace Cognitio.Model
 
     class ItemMinMax : MinMax
     {
-        public Item Item { get; set; }
+        public ItemTypeObject Item { get; set; }
     }
 
 

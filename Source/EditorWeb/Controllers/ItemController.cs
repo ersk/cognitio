@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Cognitio.Model;
+using Cognitio.Model.Object;
+using Cognitio.Model.Group;
 
 
 namespace Cognitio.EditorWeb.Controllers
@@ -13,15 +15,24 @@ namespace Cognitio.EditorWeb.Controllers
         public ActionResult Index()
         {
 
-            List<Item> builtItems = ItemFactory.GetItems();
-
-
-
+          
+            ItemManager.CreateItemGroup();
             
 
-            return View(builtItems);
+            return View();
         }
 
+        public ActionResult FoodList()
+        {
+
+            ItemManager.GetItemGroup();
+
+
+
+
+
+            return View();
+        }
         
     }
 }

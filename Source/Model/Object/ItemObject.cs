@@ -15,17 +15,19 @@ namespace Cognitio.Model.Object
         public uint Size { get; set; } // space the item takes up in storage
         public uint Weight { get; set; }
 
-        private ItemObject(string name, ItemObject type, uint size, uint weight)
+        protected internal ItemObject(string name, ItemTypeObject type, uint size, uint weight)
             : base(name, type)
         {
             Size = size;
             Weight = weight;
         }
 
-        public static ItemObject CreateItemObject(string name, ItemObject type, uint size, uint weight)
+        public static ItemObject CreateItemObject(string name, ItemTypeObject type, uint size, uint weight)
         {
-            ItemTypeObject item = new ItemObject(name, type, size, weight);
+            ItemObject item = new ItemObject(name, type, size, weight);
+
             item.Store();
+
             return item;
         }
     }
@@ -33,18 +35,18 @@ namespace Cognitio.Model.Object
     public class ItemTypeObject
     {
         public string Name { get; set; }
-        public ItemObject Type { get; set; }
+        public ItemTypeObject Type { get; set; }
         public List<ItemObject> Children { get; set; }
 
-        private ItemTypeObject(string name, ItemObject type)
+        protected internal ItemTypeObject(string name, ItemTypeObject type)
         {
             Name = name;
             Type = type;
         }
 
-        protected void Store()
+        internal void Store()
         {
-            string dbFilePath = @"C:\Users\Ersk\Cognitio\cognitio.db";
+            string dbFilePath = Config.DatabaseFilePath();
             IOdb db = OdbFactory.Open(dbFilePath);
             db.Store(this);
         }
@@ -55,14 +57,14 @@ namespace Cognitio.Model.Object
             item.Store();
             return item;
         }
-        public ItemTypeObject CreateItemObjectType(string name, ItemObject type)
+        public static ItemTypeObject CreateItemObjectType(string name, ItemTypeObject type)
         {
             ItemTypeObject item = new ItemTypeObject(name, type);
             item.Store();
             return item;
         }
-       
-        
+
+
     }
 
 }

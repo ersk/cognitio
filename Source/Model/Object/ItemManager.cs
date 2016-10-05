@@ -1,6 +1,7 @@
 ﻿using Cognitio.Model.Group;
 using NDatabase;
 using NDatabase.Api;
+using NDatabase.Api.Query;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,132 +12,93 @@ namespace Cognitio.Model.Object
 {
     public class ItemManager
     {
-        public static List<ItemObject> GetItems()
+        public static ItemGroup GetItemGroup()
         {
+            string dbFilePath = Config.DatabaseFilePath();
+            IOdb db = OdbFactory.Open(dbFilePath);
+
+            IQuery query = db.Query<ItemGroup>();
+            ItemGroup result = query.Execute<ItemGroup>().First();
+
+            return result;
+        }
+
+        public static ItemObject GetItem(string typeString)
+        {
+            string dbFilePath = Config.DatabaseFilePath();
+            IOdb db = OdbFactory.Open(dbFilePath);
+
+            IQuery query = db.Query<ItemObject>();
+            query.Descend("Name").Constrain("Food").Equal();
+            ItemObject result = query.Execute<ItemObject>().First();
+
+            return result;
+        }
+
+        public static void CreateItemGroup()
+        {
+            ItemGroup itemGroup = new ItemGroup()
+            {
+                Children = new List<ItemTypeObject>()
+            };
+
+            #region items
+            ItemTypeObject vehicle = ItemObject.CreateRootItemObjectType("Vehicle");
+            ItemTypeObject food = ItemObject.CreateRootItemObjectType("Food");
+
+            itemGroup.Children.Add(vehicle);
+            itemGroup.Children.Add(food);
+
+
+            ItemObject chariot = ItemObject.CreateItemObject("Chariot", vehicle, 81, 79);
+            ItemObject.CreateItemObject("Two By Two Chariot", chariot, 104, 98);
+            ItemObject.CreateItemObject("Erskish Chariot", chariot, 87, 73);
+
+
+            ItemTypeObject animal = ItemTypeObject.CreateItemObjectType("Animal", food);
+            ItemTypeObject dairy = ItemTypeObject.CreateItemObjectType("Dairy", animal);
+            ItemObject.CreateItemObject("Egg", dairy, 2, 2);
+            ItemObject.CreateItemObject("Milk", dairy, 7, 9);
+            ItemObject.CreateItemObject("Butter", dairy, 3, 8);
+
+            ItemTypeObject meat = ItemTypeObject.CreateItemObjectType("Meat", animal);
+            ItemObject.CreateItemObject("Leg", meat, 17, 16);
+            ItemObject liver = ItemObject.CreateItemObject("Liver", meat, 2, 2);
+            ItemObject.CreateItemObject("Cow Liver", liver, 4, 4);
+
+            #endregion
+
+            //#region add
+            //items.Add(vehicle);
+            //items.Add(chariot);
+            //items.Add(twoByTwoChariot);
+            //items.Add(erskChariot);
+            //items.Add(food);
+            //items.Add(egg);
+            //items.Add(dairy);
+            //items.Add(meat);
+            //items.Add(milk);
+            //items.Add(butter);
+            //items.Add(leg);
+            //items.Add(liver);
+            //items.Add(cowLiver);
+            //items.Add(animal);
+            //#endregion
+
+            string dbFilePath = Config.DatabaseFilePath();
+            IOdb db = OdbFactory.Open(dbFilePath);
+
+            db.Store(itemGroup);
             
         }
 
-        private static List<Item> CreateSomeItems()
+        private static List<ItemObject> BuildHierarchy(List<ItemObject> items)
         {
-            List<Item> items = new List<Item>();
-
-            #region items
-            Item vehicle = new Item
-            {
-                Name = "Vehicle"
-            };
-            Item chariot = new Item
-            {
-                Name = "Chariot",
-                Type = vehicle,
-                Size = 81,
-                Weight = 79
-            };
-            Item twoByTwoChariot = new Item
-            {
-                Name = "Two By Two Chariot",
-                Type = chariot,
-                Size = 104,
-                Weight = 98
-            };
-            Item erskChariot = new Item
-            {
-                Name = "Erskish Chariot",
-                Type = chariot,
-                Size = 87,
-                Weight = 73
-            };
-
-            Item food = new Item
-            {
-                Name = "Food"
-            };
-            Item animal = new Item
-            {
-                Name = "Animal",
-                Type = food
-            };
-            Item dairy = new Item
-            {
-                Name = "Dairy",
-                Type = animal
-            };
-            Item milk = new Item
-            {
-                Name = "Milk",
-                Type = dairy,
-                Size = 4,
-                Weight = 7
-            };
-            Item butter = new Item
-            {
-                Name = "Butter",
-                Type = dairy,
-                Size = 3,
-                Weight = 9
-            };
-
-            Item egg = new Item
-            {
-                Name = "Egg",
-                Type = animal
-            };
-
-            Item meat = new Item
-            {
-                Name = "Meat",
-                Type = animal
-            };
-            Item leg = new Item
-            {
-                Name = "Leg",
-                Type = meat,
-                Size = 17,
-                Weight = 16
-            };
-            Item liver = new Item
-            {
-                Name = "Liver",
-                Type = meat,
-                Size = 2,
-                Weight = 3
-            };
-            Item cowLiver = new Item
-            {
-                Name = "Cow Liver",
-                Type = liver,
-                Size = 4,
-                Weight = 4
-            };
-            #endregion
-
-            #region add
-            items.Add(vehicle);
-            items.Add(chariot);
-            items.Add(twoByTwoChariot);
-            items.Add(erskChariot);
-            items.Add(food);
-            items.Add(egg);
-            items.Add(dairy);
-            items.Add(meat);
-            items.Add(milk);
-            items.Add(butter);
-            items.Add(leg);
-            items.Add(liver);
-            items.Add(cowLiver);
-            items.Add(animal);
-            #endregion
-
-            return BuildHierarchy(items);
-        }
-
-        private static List<Item> BuildHierarchy(List<Item> items)
-        {
-            List<Item> topItems = items.Where(i => i.Type == null).ToList();
+            List<ItemObject> topItems = items.Where(i => i.Type == null).ToList();
 
 
 
-            foreach (Item itemType in topItems)
+            foreach (ItemObject itemType in topItems)
             {
                 itemType.Children = BuildHierarchyLevel(items, itemType);
             }
@@ -145,11 +107,11 @@ namespace Cognitio.Model.Object
             return topItems;
         }
 
-        private static List<Item> BuildHierarchyLevel(List<Item> items, Item itemType)
+        private static List<ItemObject> BuildHierarchyLevel(List<ItemObject> items, ItemObject itemType)
         {
-            List<Item> childItems = items.Where(i => i.Type == itemType).ToList();
+            List<ItemObject> childItems = items.Where(i => i.Type == itemType).ToList();
 
-            foreach (Item childItem in childItems)
+            foreach (ItemObject childItem in childItems)
             {
                 childItem.Children = BuildHierarchyLevel(items, childItem);
             }
@@ -162,14 +124,14 @@ namespace Cognitio.Model.Object
 
     public class ItemContainer
     {
-        public List<Item> Items { get; set; }
+        public List<ItemObject> Items { get; set; }
 
         public uint ItemSpace { get; set; }
 
-        public bool AddItem(Item addItem)
+        public bool AddItem(ItemObject addItem)
         {
             uint currSpaceUsed = 0;
-            foreach (Item currItem in Items)
+            foreach (ItemObject currItem in Items)
             {
                 currSpaceUsed += currItem.Size;
             }
@@ -185,7 +147,7 @@ namespace Cognitio.Model.Object
             }
         }
 
-        public bool TakeItem(int itemIndex, out Item takeItem)
+        public bool TakeItem(int itemIndex, out ItemObject takeItem)
         {
             takeItem = null;
 
@@ -208,7 +170,7 @@ namespace Cognitio.Model.Object
 
     public class ItemCount
     {
-        public Item Item { get; set; }
+        public ItemObject Item { get; set; }
         public uint Count { get; set; }
     }
 
