@@ -36,12 +36,12 @@ namespace Cognitio.Model.Object
     {
         public string Name { get; set; }
         public ItemTypeObject Type { get; set; }
-        public List<ItemObject> Children { get; set; }
+        public List<ItemTypeObject> Children { get; set; }
 
         protected internal ItemTypeObject(string name, ItemTypeObject type)
         {
             Name = name;
-            Type = type;
+			Children = new List<ItemTypeObject>();
         }
 
         internal void Store()

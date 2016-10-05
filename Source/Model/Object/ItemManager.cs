@@ -22,6 +22,21 @@ namespace Cognitio.Model.Object
 
             return result;
         }
+		
+		public static ItemTypeObject GetItemTypeObject(string itemName)
+        {
+            string dbFilePath = Config.DatabaseFilePath();
+            IOdb db = OdbFactory.Open(dbFilePath);
+			
+			if(string.IsNullOrEmpty(itemName)) itemName = "_ROOT";
+            IQuery query = db.Query<ItemTypeObject>();
+			query.Descend("Name").Constrain(itemName).Equal();
+            ItemTypeObject result = query.Execute<ItemTypeObject>().First();
+
+            return result;
+        }
+		
+		
 
         public static ItemObject GetItem(string typeString)
         {
@@ -37,17 +52,14 @@ namespace Cognitio.Model.Object
 
         public static void CreateItemGroup()
         {
-            ItemGroup itemGroup = new ItemGroup()
-            {
-                Children = new List<ItemTypeObject>()
-            };
+            ItemTypeObject root = ItemObject.CreateRootItemObjectType("_ROOT");
 
             #region items
             ItemTypeObject vehicle = ItemObject.CreateRootItemObjectType("Vehicle");
             ItemTypeObject food = ItemObject.CreateRootItemObjectType("Food");
 
-            itemGroup.Children.Add(vehicle);
-            itemGroup.Children.Add(food);
+            root.Children.Add(vehicle);
+            root.Children.Add(food);
 
 
             ItemObject chariot = ItemObject.CreateItemObject("Chariot", vehicle, 81, 79);
@@ -88,17 +100,17 @@ namespace Cognitio.Model.Object
             string dbFilePath = Config.DatabaseFilePath();
             IOdb db = OdbFactory.Open(dbFilePath);
 
-            db.Store(itemGroup);
+            //db.Store(itemGroup);
             
         }
 
-        private static List<ItemObject> BuildHierarchy(List<ItemObject> items)
+        private static List<ItemTypeObject> BuildHierarchy(List<ItemTypeObject> items)
         {
-            List<ItemObject> topItems = items.Where(i => i.Type == null).ToList();
+            List<ItemTypeObject> topItems = items.Where(i => i.Type == null).ToList();
 
 
 
-            foreach (ItemObject itemType in topItems)
+            foreach (ItemTypeObject itemType in topItems)
             {
                 itemType.Children = BuildHierarchyLevel(items, itemType);
             }
@@ -107,11 +119,11 @@ namespace Cognitio.Model.Object
             return topItems;
         }
 
-        private static List<ItemObject> BuildHierarchyLevel(List<ItemObject> items, ItemObject itemType)
+        private static List<ItemTypeObject> BuildHierarchyLevel(List<ItemTypeObject> items, ItemTypeObject itemType)
         {
-            List<ItemObject> childItems = items.Where(i => i.Type == itemType).ToList();
+            List<ItemTypeObject> childItems = items.Where(i => i.Type == itemType).ToList();
 
-            foreach (ItemObject childItem in childItems)
+            foreach (ItemTypeObject childItem in childItems)
             {
                 childItem.Children = BuildHierarchyLevel(items, childItem);
             }

@@ -1,46 +1,47 @@
-﻿@model List<Cognitio.Model.Item>
+﻿@model Cognitio.Model.Object.ItemTypeObject
 
-@using Cognitio.Model
+@using Cognitio.Model.Object
 
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Cognitio</title>
-</head>
-<body>
+    <!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Cognitio</title>
+    </head>
+    <body>
 
-    <div class="itemHierarchy">
-        @ShowItemHierarchy(Model);
-    </div>
+        <div class="itemHierarchy">
+            @ShowItemHierarchy(new List<ItemTypeObject>(){Model});
+        </div>
 
-    
 
-    @helper ShowItemHierarchy(IEnumerable<Item> children)
-        {
-            <ul>
-                @foreach (Item child in children)
-                {
-                    <li>
-                        @child.Name
 
-                        @if(child.Size != 0 && child.Weight !=0)
-                        {
-                            @Html.Raw("&nbsp;")
-                            @("(" + child.Size)
-                            @Html.Raw("&#9679;")
-                            @(", " + child.Weight)
-                            @Html.Raw("&#9648;")@:)
+@helper ShowItemHierarchy(List<ItemTypeObject> children)
+{
+        <ul>
+            @foreach (ItemTypeObject child in children)
+            {
+                <li>
+                    @child.Name
+
+                    @if (child is ItemObject)
+                    {
+                        ItemObject itemObject = (ItemObject)child;
+                        @Html.Raw("&nbsp;")
+                        @("(" + itemObject.Size)
+                        @Html.Raw("&#9679;")
+                        @(", " + itemObject.Weight)
+                        @Html.Raw("&#9648;")@:)
                         }
 
-                        @if (child.Children.Any())
-                        {
-                            @ShowItemHierarchy(child.Children)
-                        }
-                    </li>
-                }
-            </ul>
-        }
+                    @if (child.Children.Any())
+                    {
+                        @ShowItemHierarchy(child.Children)
+                    }
+                </li>
+            }
+        </ul>
+}
 
 
-</body>
+    </body>
 </html>
