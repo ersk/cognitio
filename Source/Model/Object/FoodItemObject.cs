@@ -24,7 +24,7 @@ namespace Cognitio.Model.Object
         {
             FoodItemObject item = new FoodItemObject(name, type, size, weight, foodValue);
 
-            item.Store();
+            item.Store(item);
 
             return item;
         }

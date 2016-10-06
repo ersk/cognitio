@@ -1,4 +1,5 @@
 ﻿using Cognitio.Model.Group;
+using Db4objects.Db4o;
 using NDatabase;
 using NDatabase.Api;
 using NDatabase.Api.Query;
@@ -27,17 +28,35 @@ namespace Cognitio.Model.Object
 		
 		public static ItemTypeObject GetItemTypeObject(string itemName)
         {
-            string dbFilePath = Config.DatabaseFilePath();
-            IOdb db = OdbFactory.Open(dbFilePath);
+            //string dbFilePath = Config.DatabaseFilePath();
+            //IOdb db = OdbFactory.Open(dbFilePath);
 			
-			if(string.IsNullOrEmpty(itemName)) itemName = "_ROOT";
-            IQuery query = db.Query<ItemTypeObject>();
-			query.Descend("name").Constrain(itemName).Equal();
-            ItemTypeObject result = query.Execute<ItemTypeObject>().First();
+            //if(string.IsNullOrEmpty(itemName)) itemName = "_ROOT";
+            //IQuery query = db.Query<ItemTypeObject>();
+            //query.Descend("name").Constrain(itemName).Equal();
+            //ItemTypeObject result = query.Execute<ItemTypeObject>().First();
 
-            db.Close();
+            //db.Close();
 
-            return result;
+            //return result;
+
+            IObjectContainer db =
+              Db4oEmbedded.OpenFile(Db4oEmbedded.NewConfiguration(), Config.DatabaseFilePath());
+            IObjectSet result=null;
+            try
+            {
+                ItemTypeObject proto = new ItemTypeObject("_ROOT", null);
+                result = db.QueryByExample(proto);
+                string s = "";
+            }
+            finally
+            {
+                db.Close();
+            }
+
+            var v = result[0];
+
+            return (ItemTypeObject)v;
         }
 		
 		
@@ -67,17 +86,14 @@ namespace Cognitio.Model.Object
             root.Children.Add(vehicle);
             root.Children.Add(food);
 
-            IOdb db = OdbFactory.Open(Config.DatabaseFilePath());
-            db.Store(root);
-
-
-
-            db.Store(vehicle);
-
-
-
-            db.Store(food);
-            db.Close();
+            //IOdb db = OdbFactory.Open(Config.DatabaseFilePath());
+            //db.Store(root);
+            //db.Store(vehicle);
+            //db.Store(food);
+            //db.Close();
+            Db4oDatabase.Store(root);
+            //Db4oDatabase.Store(vehicle);
+            //Db4oDatabase.Store(food);
 
 
             ItemObject chariot = ItemObject.CreateItemObject("Chariot", vehicle, 81, 79);

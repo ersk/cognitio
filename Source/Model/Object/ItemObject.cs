@@ -27,7 +27,7 @@ namespace Cognitio.Model.Object
         {
             ItemObject item = new ItemObject(name, type, size, weight);
 
-            item.Store();
+            item.Store(item);
 
             return item;
         }
@@ -51,24 +51,25 @@ namespace Cognitio.Model.Object
 			Children = new ItemObjectList();
         }
 
-        internal void Store()
+        internal void Store(object obj)
         {
             string dbFilePath = Config.DatabaseFilePath();
-            IOdb db = OdbFactory.Open(dbFilePath);
-            db.Store(this);
-            db.Close();
+            //IOdb db = OdbFactory.Open(dbFilePath);
+            //db.Store(obj);
+            //db.Close();
+            Db4oDatabase.Store(obj);
         }
 
         public static ItemTypeObject CreateRootItemObjectType(string name)
         {
             ItemTypeObject item = new ItemTypeObject(name, null);
-            item.Store();
+            item.Store(item);
             return item;
         }
         public static ItemTypeObject CreateItemObjectType(string name, ItemTypeObject type)
         {
             ItemTypeObject item = new ItemTypeObject(name, type);
-            item.Store();
+            item.Store(item);
             return item;
         }
 
@@ -76,47 +77,73 @@ namespace Cognitio.Model.Object
     }
 
 
-
-
-    public class ItemObjectList : IEnumerable
+    public class ItemObjectList : IEnumerable<ItemTypeObject>
     {
-        List<ItemTypeObject> m_Items = new List<ItemTypeObject>();
+        List<ItemTypeObject> mylist = new List<ItemTypeObject>();
 
-        public ItemObjectList()
+        public ItemTypeObject this[int index]
         {
-            // For the sake of simplicity lets keep them as arrays
-            // ideally it should be link list
-            m_Items = new List<ItemTypeObject>();
+            get { return mylist[index]; }
+            set { mylist.Insert(index, value); }
         }
 
         public void Add(ItemTypeObject item)
         {
-            // Let us only worry about adding the item 
-            m_Items.Add(item);
+            mylist.Add(item);
+            Db4oDatabase.Store(this);
         }
 
-        public int Count()
+        public IEnumerator<ItemTypeObject> GetEnumerator()
         {
-            return m_Items.Count();
+            return mylist.GetEnumerator();
         }
 
-        // IEnumerable Member
-        public IEnumerator GetEnumerator()
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
-            foreach (object o in m_Items)
-            {
-                // Lets check for end of list (its bad code since we used arrays)
-                if(o == null)
-                {
-                    break;
-                }
-
-                // Return the current element and then on next function call 
-                // resume from next element rather than starting all over again;
-                yield return o;
-            }
+            return this.GetEnumerator();
         }
     }
+
+    //public class ItemObjectList : IEnumerable
+    //{
+    //    List<ItemTypeObject> m_Items = new List<ItemTypeObject>();
+
+    //    public ItemObjectList()
+    //    {
+    //        // For the sake of simplicity lets keep them as arrays
+    //        // ideally it should be link list
+    //        m_Items = new List<ItemTypeObject>();
+    //    }
+
+    //    public void Add(ItemTypeObject item)
+    //    {
+    //        // Let us only worry about adding the item 
+    //        m_Items.Add(item);
+    //        Db4oDatabase.Store(this);
+    //    }
+
+    //    public int Count()
+    //    {
+    //        return m_Items.Count();
+    //    }
+
+    //    // IEnumerable Member
+    //    public IEnumerator GetEnumerator()
+    //    {
+    //        foreach (object o in m_Items)
+    //        {
+    //            // Lets check for end of list (its bad code since we used arrays)
+    //            if(o == null)
+    //            {
+    //                break;
+    //            }
+
+    //            // Return the current element and then on next function call 
+    //            // resume from next element rather than starting all over again;
+    //            yield return o;
+    //        }
+    //    }
+    //}
 
 
     //public class ItemObjectList : CollectionBase
