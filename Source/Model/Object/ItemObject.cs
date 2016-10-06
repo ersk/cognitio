@@ -78,87 +78,125 @@ namespace Cognitio.Model.Object
 
 
 
-
-
-
-    public class ItemObjectList : CollectionBase
+    public class ItemObjectList : IEnumerable
     {
+        List<ItemTypeObject> m_Items = new List<ItemTypeObject>();
+
         public ItemObjectList()
         {
-            //
-            // TODO: Add constructor logic here
-            //
+            // For the sake of simplicity lets keep them as arrays
+            // ideally it should be link list
+            m_Items = new List<ItemTypeObject>();
         }
-        #region Properties
-        /// <summary>
-        /// Gets/Sets value for the item by that index
-        /// </summary>
-        public ItemTypeObject this[int index]
-        {
-            get
-            {
-                return (ItemTypeObject)this.List[index];
-            }
-            set
-            {
-                this.List[index] = value;
-            }
-        }
-        #endregion
 
-        #region Public Methods
-        public int IndexOf(ItemTypeObject itemTypeObject)
+        public void Add(ItemTypeObject item)
         {
-            if (itemTypeObject != null)
-            {
-                return base.List.IndexOf(itemTypeObject);
-            }
-            return -1;
+            // Let us only worry about adding the item 
+            m_Items.Add(item);
         }
-        public int Add(ItemTypeObject itemTypeObject)
-        {
-            if (itemTypeObject != null)
-            {
-                int returnInt = this.List.Add(itemTypeObject);
-                Store();
-                return returnInt;
-            }
-            return -1;
-        }
-        public void Remove(ItemTypeObject itemTypeObject)
-        {
-            this.InnerList.Remove(itemTypeObject);
-            Store();
-        }
-        public void AddRange(ItemObjectList collection)
-        {
-            if (collection != null)
-            {
-                this.InnerList.AddRange(collection);
-            }
-            Store();
-        }
-        public void Insert(int index, ItemTypeObject itemTypeObject)
-        {
-            if (index <= List.Count && itemTypeObject != null)
-            {
-                this.List.Insert(index, itemTypeObject);
-            }
-            Store();
-        }
-        public bool Contains(ItemTypeObject itemTypeObject)
-        {
-            return this.List.Contains(itemTypeObject);
-        }
-        #endregion
 
-        private void Store()
+        public int Count()
         {
-            IOdb db = OdbFactory.Open(Config.DatabaseFilePath());
-            db.Store(this);
-            db.Close();
+            return m_Items.Count();
+        }
+
+        // IEnumerable Member
+        public IEnumerator GetEnumerator()
+        {
+            foreach (object o in m_Items)
+            {
+                // Lets check for end of list (its bad code since we used arrays)
+                if(o == null)
+                {
+                    break;
+                }
+
+                // Return the current element and then on next function call 
+                // resume from next element rather than starting all over again;
+                yield return o;
+            }
         }
     }
+
+
+    //public class ItemObjectList : CollectionBase
+    //{
+    //    public ItemObjectList()
+    //    {
+    //        //
+    //        // TODO: Add constructor logic here
+    //        //
+    //    }
+    //    #region Properties
+    //    /// <summary>
+    //    /// Gets/Sets value for the item by that index
+    //    /// </summary>
+    //    public ItemTypeObject this[int index]
+    //    {
+    //        get
+    //        {
+    //            return (ItemTypeObject)this.List[index];
+    //        }
+    //        set
+    //        {
+    //            this.List[index] = value;
+    //        }
+    //    }
+    //    #endregion
+
+    //    #region Public Methods
+    //    public int IndexOf(ItemTypeObject itemTypeObject)
+    //    {
+    //        if (itemTypeObject != null)
+    //        {
+    //            return base.List.IndexOf(itemTypeObject);
+    //        }
+    //        return -1;
+    //    }
+    //    public int Add(ItemTypeObject itemTypeObject)
+    //    {
+    //        if (itemTypeObject != null)
+    //        {
+    //            int returnInt = this.List.Add(itemTypeObject);
+    //            Store();
+    //            return returnInt;
+    //        }
+    //        return -1;
+    //    }
+    //    public void Remove(ItemTypeObject itemTypeObject)
+    //    {
+    //        this.InnerList.Remove(itemTypeObject);
+    //        Store();
+    //    }
+    //    public void AddRange(ItemObjectList collection)
+    //    {
+    //        if (collection != null)
+    //        {
+    //            this.InnerList.AddRange(collection);
+    //        }
+    //        Store();
+    //    }
+    //    public void Insert(int index, ItemTypeObject itemTypeObject)
+    //    {
+    //        if (index <= List.Count && itemTypeObject != null)
+    //        {
+    //            this.List.Insert(index, itemTypeObject);
+    //        }
+    //        Store();
+    //    }
+    //    public bool Contains(ItemTypeObject itemTypeObject)
+    //    {
+    //        return this.List.Contains(itemTypeObject);
+    //    }
+    //    #endregion
+
+    //    private void Store()
+    //    {
+    //        IOdb db = OdbFactory.Open(Config.DatabaseFilePath());
+    //        db.Store(this);
+    //        db.Close();
+    //    }
+    //}
 
 
 

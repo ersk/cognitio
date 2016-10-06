@@ -32,7 +32,7 @@ namespace Cognitio.Model.Object
 			
 			if(string.IsNullOrEmpty(itemName)) itemName = "_ROOT";
             IQuery query = db.Query<ItemTypeObject>();
-			query.Descend("Name").Constrain(itemName).Equal();
+			query.Descend("name").Constrain(itemName).Equal();
             ItemTypeObject result = query.Execute<ItemTypeObject>().First();
 
             db.Close();
@@ -66,6 +66,18 @@ namespace Cognitio.Model.Object
 
             root.Children.Add(vehicle);
             root.Children.Add(food);
+
+            IOdb db = OdbFactory.Open(Config.DatabaseFilePath());
+            db.Store(root);
+
+
+
+            db.Store(vehicle);
+
+
+
+            db.Store(food);
+            db.Close();
 
 
             ItemObject chariot = ItemObject.CreateItemObject("Chariot", vehicle, 81, 79);
@@ -109,32 +121,6 @@ namespace Cognitio.Model.Object
             
         }
 
-        private static ItemObjectList BuildHierarchy(ItemObjectList items)
-        {
-            ItemObjectList topItems = items.Where(i => i.Type == null).ToList();
-
-
-
-            foreach (ItemTypeObject itemType in topItems)
-            {
-                itemType.Children = BuildHierarchyLevel(items, itemType);
-            }
-
-
-            return topItems;
-        }
-
-        private static ItemObjectList BuildHierarchyLevel(ItemObjectList items, ItemTypeObject itemType)
-        {
-            ItemObjectList childItems = items.Where(i => i.Type == itemType).ToList();
-
-            foreach (ItemTypeObject childItem in childItems)
-            {
-                childItem.Children = BuildHierarchyLevel(items, childItem);
-            }
-
-            return childItems;
-        }
     }
 
    

@@ -33,7 +33,7 @@
                         @Html.Raw("&#9648;")@:)
                         }
 
-                    @if (child.Children.Any())
+                    @if (child.Children.Count() > 0)
                     {
                         @ShowItemHierarchy(child.Children)
                     }
