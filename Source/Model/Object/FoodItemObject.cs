@@ -20,11 +20,12 @@ namespace Cognitio.Model.Object
             FoodValue = foodValue;
         }
 
-        public static FoodItemObject CreateFoodItemObject(string name, ItemTypeObject type, uint size, uint weight, uint foodValue)
+        public static FoodItemObject CreateFoodItemObject(IOdb db, string name, ItemTypeObject type, uint size, uint weight, uint foodValue)
         {
             FoodItemObject item = new FoodItemObject(name, type, size, weight, foodValue);
 
-            item.Store(item);
+            type.Children.Add(item);
+            db.Store(type);
 
             return item;
         }

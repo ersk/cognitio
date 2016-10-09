@@ -25,38 +25,70 @@ namespace Cognitio.Model.Object
 
             return result;
         }
+
+        public class AddItemTypeManagerModel
+        {
+            public string Type { get; set; }
+            public string Name { get; set; }
+        }
+        public class AddItemManagerModel : AddItemTypeManagerModel
+        {
+            public uint Weight { get; set; }
+            public uint Size { get; set; }
+        }
+        public class AddFoodItemManagerModel : AddItemManagerModel
+        {
+            public uint FoodValue { get; set; }
+        }
+
+        public static void AddItem(AddItemTypeManagerModel model)
+        {
+            using (IOdb db = OdbFactory.Open(Config.DatabaseFilePath()))
+            {
+                IQuery query = db.Query<ItemTypeObject>();
+                query.Descend("name").Constrain(model.Type).Equal();
+                ItemTypeObject itemTypeObject = query.Execute<ItemTypeObject>().First();
+                ItemTypeObject.CreateItemObjectType(db, model.Name, itemTypeObject);
+            }
+        }
+        public static void AddItem(AddItemManagerModel model)
+        {
+            using (IOdb db = OdbFactory.Open(Config.DatabaseFilePath()))
+            {
+                IQuery query = db.Query<ItemTypeObject>();
+                query.Descend("name").Constrain(model.Type).Equal();
+                ItemTypeObject itemTypeObject = query.Execute<ItemTypeObject>().First();
+                ItemTypeObject.CreateItemObjectType(db, model.Name, itemTypeObject);
+            }
+        }
+        public static void AddItem(AddFoodItemManagerModel model)
+        {
+            // get type from database
+            using(IOdb db = OdbFactory.Open(Config.DatabaseFilePath()))
+            {
+                IQuery query = db.Query<ItemTypeObject>();
+                query.Descend("name").Constrain(model.Type).Equal();
+                ItemTypeObject itemTypeObject = query.Execute<ItemTypeObject>().First();
+                FoodItemObject.CreateFoodItemObject(db, model.Name, itemTypeObject, model.Size, model.Weight, model.FoodValue);
+            }
+        }
 		
 		public static ItemTypeObject GetItemTypeObject(string itemName)
         {
-            //string dbFilePath = Config.DatabaseFilePath();
-            //IOdb db = OdbFactory.Open(dbFilePath);
+            ItemTypeObject result;
+
+            using (IOdb db = OdbFactory.Open(Config.DatabaseFilePath()))
+            {
+                if (string.IsNullOrEmpty(itemName)) itemName = "_ROOT";
+                IQuery query = db.Query<ItemTypeObject>();
+                query.Descend("name").Constrain(itemName).Equal();
+                result = query.Execute<ItemTypeObject>().First();
+            }
 			
-            //if(string.IsNullOrEmpty(itemName)) itemName = "_ROOT";
-            //IQuery query = db.Query<ItemTypeObject>();
-            //query.Descend("name").Constrain(itemName).Equal();
-            //ItemTypeObject result = query.Execute<ItemTypeObject>().First();
+            
+       
 
-            //db.Close();
-
-            //return result;
-
-            IObjectContainer db =
-              Db4oEmbedded.OpenFile(Db4oEmbedded.NewConfiguration(), Config.DatabaseFilePath());
-            IObjectSet result=null;
-            try
-            {
-                ItemTypeObject proto = new ItemTypeObject("_ROOT", null);
-                result = db.QueryByExample(proto);
-                string s = "";
-            }
-            finally
-            {
-                db.Close();
-            }
-
-            var v = result[0];
-
-            return (ItemTypeObject)v;
+            return result;
         }
 		
 		
@@ -77,65 +109,35 @@ namespace Cognitio.Model.Object
 
         public static void CreateItemGroup()
         {
-            ItemTypeObject root = ItemObject.CreateRootItemObjectType("_ROOT");
+            using (IOdb db = OdbFactory.Open(Config.DatabaseFilePath()))
+            {
+                ItemTypeObject root = ItemObject.CreateRootItemObjectType(db, "_ROOT");
 
-            #region items
-            ItemTypeObject vehicle = ItemObject.CreateItemObjectType("Vehicle", root);
-            ItemTypeObject food = ItemObject.CreateItemObjectType("Food", root);
+                #region items
+                ItemTypeObject vehicle = ItemObject.CreateItemObjectType(db, "Vehicle", root);
+                ItemTypeObject food = ItemObject.CreateItemObjectType(db, "Food", root);
 
-            root.Children.Add(vehicle);
-            root.Children.Add(food);
-
-            //IOdb db = OdbFactory.Open(Config.DatabaseFilePath());
-            //db.Store(root);
-            //db.Store(vehicle);
-            //db.Store(food);
-            //db.Close();
-            Db4oDatabase.Store(root);
-            //Db4oDatabase.Store(vehicle);
-            //Db4oDatabase.Store(food);
+                ItemObject chariot = ItemObject.CreateItemObject(db, "Chariot", vehicle, 81, 79);
+                ItemObject.CreateItemObject(db, "Two By Two Chariot", chariot, 104, 98);
+                ItemObject.CreateItemObject(db, "Erskish Chariot", chariot, 87, 73);
 
 
-            ItemObject chariot = ItemObject.CreateItemObject("Chariot", vehicle, 81, 79);
-            ItemObject.CreateItemObject("Two By Two Chariot", chariot, 104, 98);
-            ItemObject.CreateItemObject("Erskish Chariot", chariot, 87, 73);
+                ItemTypeObject animal = ItemTypeObject.CreateItemObjectType(db, "Animal", food);
+                ItemTypeObject dairy = ItemTypeObject.CreateItemObjectType(db, "Dairy", animal);
+                FoodItemObject.CreateFoodItemObject(db, "Egg", dairy, 2, 2, 6);
+                FoodItemObject.CreateFoodItemObject(db, "Milk", dairy, 7, 9, 8);
+                FoodItemObject.CreateFoodItemObject(db, "Butter", dairy, 3, 8, 7);
 
+                ItemTypeObject meat = ItemTypeObject.CreateItemObjectType(db, "Meat", animal);
+                FoodItemObject.CreateFoodItemObject(db, "Leg", meat, 17, 16, 8);
+                ItemObject liver = FoodItemObject.CreateFoodItemObject(db, "Liver", meat, 2, 2, 36);
+                FoodItemObject.CreateFoodItemObject(db, "Cow Liver", liver, 4, 4, 44);
 
-            ItemTypeObject animal = ItemTypeObject.CreateItemObjectType("Animal", food);
-            ItemTypeObject dairy = ItemTypeObject.CreateItemObjectType("Dairy", animal);
-            ItemObject.CreateItemObject("Egg", dairy, 2, 2);
-            ItemObject.CreateItemObject("Milk", dairy, 7, 9);
-            ItemObject.CreateItemObject("Butter", dairy, 3, 8);
-
-            ItemTypeObject meat = ItemTypeObject.CreateItemObjectType("Meat", animal);
-            ItemObject.CreateItemObject("Leg", meat, 17, 16);
-            ItemObject liver = ItemObject.CreateItemObject("Liver", meat, 2, 2);
-            ItemObject.CreateItemObject("Cow Liver", liver, 4, 4);
-
-            #endregion
-
-            //#region add
-            //items.Add(vehicle);
-            //items.Add(chariot);
-            //items.Add(twoByTwoChariot);
-            //items.Add(erskChariot);
-            //items.Add(food);
-            //items.Add(egg);
-            //items.Add(dairy);
-            //items.Add(meat);
-            //items.Add(milk);
-            //items.Add(butter);
-            //items.Add(leg);
-            //items.Add(liver);
-            //items.Add(cowLiver);
-            //items.Add(animal);
-            //#endregion
-
-            string dbFilePath = Config.DatabaseFilePath();
-
-            //db.Store(itemGroup);
+                #endregion
+            }
             
         }
+
 
     }
 

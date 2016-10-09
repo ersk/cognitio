@@ -10,7 +10,7 @@
     <body>
 
         <div class="itemHierarchy">
-            @ShowItemHierarchy(new ItemObjectList(){Model});
+            @ShowItemHierarchy(Model.Children)
         </div>
 
 
@@ -20,8 +20,8 @@
         <ul>
             @foreach (ItemTypeObject child in children)
             {
-                <li>
-                    @child.Name
+                <li data-name="@child.Name">
+                    [@child.GetType().Name] <span class="selectType">@child.Name</span>
 
                     @if (child is ItemObject)
                     {
@@ -42,6 +42,131 @@
         </ul>
 }
 
+        <div>         
+            <select>
+                <option>...select</option>
+                <option>Item Type</option>
+                <option>Item</option>
+                <option>Food Type</option>
+            </select>
+            Name: <input data-name="Name">
+            Type: <input data-name="Type">
+            <div class="additionalValues"></div>
+            <br /><input class="saveButton" type='button' value='Save'>
+        </div>
+
 
     </body>
 </html>
+
+<style>
+    .selectType
+    {
+        font-weight:bold;
+        cursor:pointer;
+    }
+    .saveButton
+    {
+        display:none;
+    }
+</style>
+
+<script src="http://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+<script>
+    var itemType = ["Size", "Weight"];
+    var foodItemType = ["Size", "Weight", "FoodValue"];
+
+    $(document).ready(function ()
+    {
+        $("select").change(function () {
+            var i = $(this).prop('selectedIndex');
+            ShowValueBoxes(i);
+        });
+        $(".selectType").click(function ()
+        {
+            var type = $(this).closest("li").attr("data-name");
+            $("input[data-name='Type']").val(type);
+        });
+
+        $(".saveButton").click(function ()
+        {
+            Save();
+        });
+    });
+
+    function GetControllerModelName()
+    {
+        var i = $("select").prop('selectedIndex');
+        var modelName;
+        switch (i)
+        {
+            case 0: return;
+            case 1: return "AddItemTypeControllerModel";
+            case 2: return "AddItemControllerModel"; 
+            case 3: return "AddFoodItemControllerModel"; 
+        } 
+    }
+    
+
+    function ShowValueBoxes(i)
+    {
+        var valueArray;
+
+        $(".additionalValues").html("");
+
+        switch(i)
+        {
+            case 0: return;
+            case 1: valueArray = null; break;
+            case 2: valueArray = itemType; break;
+            case 3: valueArray = foodItemType; break;
+        }
+
+        if(valueArray != null)
+        {
+            var j;
+            for (j = 0; j < valueArray.length; j++)
+            {
+                var input = valueArray[j] + ": <input data-name=\"" + valueArray[j] + "\">";
+                $(".additionalValues").append(input);
+            }
+        }
+
+        $(".saveButton").show();
+    }
+
+    function Save()
+    {
+        debugger;
+
+        var controllerModel =
+        {
+            Type: $("input[data-name='Type']").val(),
+            Name: $("input[data-name='Name']").val(),
+            Weight: $(".additionalValues input[data-name='Weight']").val(),
+            Size: $(".additionalValues input[data-name='Size']").val(),
+            FoodValue: $(".additionalValues input[data-name='FoodValue']").val()
+        }
+        var ajaxModel =
+        {
+            ModelType: GetControllerModelName(),
+            ControllerModel: JSON.stringify(controllerModel)
+        }
+
+
+        $.ajax
+        ({
+            url: '/Item/AddItem',
+            type: 'post',
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify(ajaxModel),
+            success: function (data)
+            {
+                alert("motherfucker!");
+            }
+        });
+    }
+
+</script>

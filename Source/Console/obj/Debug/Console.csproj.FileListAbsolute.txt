@@ -4,6 +4,5 @@ C:\ConceptProjects\cognitio-simon_second (2)\cognitio-simon_second\Source\Consol
 C:\ConceptProjects\cognitio-simon_second\Source\Console\bin\Debug\Console.exe.config
 C:\Projects\Git\cognitio\Source\Console\bin\Debug\Console.exe
 C:\Projects\Git\cognitio\Source\Console\bin\Debug\Console.pdb
-C:\Projects\Git\cognitio\Source\Console\obj\Debug\Console.csprojResolveAssemblyReference.cache
 C:\Projects\Git\cognitio\Source\Console\obj\Debug\Console.exe
 C:\Projects\Git\cognitio\Source\Console\obj\Debug\Console.pdb

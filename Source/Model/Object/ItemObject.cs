@@ -23,11 +23,13 @@ namespace Cognitio.Model.Object
             Weight = weight;
         }
 
-        public static ItemObject CreateItemObject(string name, ItemTypeObject type, uint size, uint weight)
+        public static ItemObject CreateItemObject(IOdb db, string name, ItemTypeObject type, uint size, uint weight)
         {
             ItemObject item = new ItemObject(name, type, size, weight);
 
-            item.Store(item);
+            //db.Store(item);
+            type.Children.Add(item);
+            db.Store(type);
 
             return item;
         }
@@ -51,25 +53,32 @@ namespace Cognitio.Model.Object
 			Children = new ItemObjectList();
         }
 
-        internal void Store(object obj)
-        {
-            string dbFilePath = Config.DatabaseFilePath();
-            //IOdb db = OdbFactory.Open(dbFilePath);
-            //db.Store(obj);
-            //db.Close();
-            Db4oDatabase.Store(obj);
-        }
+        //internal void Store(object obj)
+        //{
+        //    string dbFilePath = Config.DatabaseFilePath();
+        //    //IOdb db = OdbFactory.Open(dbFilePath);
+        //    //db.Store(obj);
+        //    //db.Close();
+        //    ObjectDatabase.Store(obj);
+        //}
 
-        public static ItemTypeObject CreateRootItemObjectType(string name)
+        public static ItemTypeObject CreateRootItemObjectType(IOdb db, string name)
         {
             ItemTypeObject item = new ItemTypeObject(name, null);
-            item.Store(item);
+
+            db.Store(item);
+
             return item;
         }
-        public static ItemTypeObject CreateItemObjectType(string name, ItemTypeObject type)
+        public static ItemTypeObject CreateItemObjectType(IOdb db, string name, ItemTypeObject type)
         {
             ItemTypeObject item = new ItemTypeObject(name, type);
-            item.Store(item);
+            //item.Store(item);
+
+            //db.Store(item);
+            type.Children.Add(item);
+            db.Store(type);
+
             return item;
         }
 
@@ -90,7 +99,7 @@ namespace Cognitio.Model.Object
         public void Add(ItemTypeObject item)
         {
             mylist.Add(item);
-            Db4oDatabase.Store(this);
+            ObjectDatabase.Store(this);
         }
 
         public IEnumerator<ItemTypeObject> GetEnumerator()
