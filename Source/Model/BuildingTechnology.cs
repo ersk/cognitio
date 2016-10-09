@@ -9,23 +9,40 @@ namespace Cognitio.Model
 {
     class Building
     {
+        public string Name { get; set; }
         public List<Room> Rooms { get; set; }
-        public BuildRequirements BuildRequirements { get; set; } 
+        public Construction Construction { get; set; }
     }
 
     class Room
     {
+        public string Name { get; set; }
         public MinMax JobsMinMax { get; set; }
-        public int MyProperty { get; set; }
+        public Construction Construction { get; set; }
     }
 
     class ProcessRoom : Room
     {
         public List<ItemMinMax> InputItemsMinMax { get; set; }
         public List<ItemMinMax> OutputItemsMinMax { get; set; }
-        public MinMax ProcessTimeMinMax { get; set; }
+        public MinMax ProcessTimeMinMax { get; set; } //;minutes
     }
-
+    class StorageRoom : Room
+    {
+        public ItemContainer ItemContainer { get; set; }
+    }
+    class Construction
+    {
+        public List<ItemMinMax> ItemsMinMax { get; set; }
+        public MinMax Time { get; set; }
+        public MinMax Workers { get; set; }
+        public MinMax Space { get; set; }
+    }
+    class Job
+    {
+        public string Name { get; set; }
+        public List<Skill> NeededSkills { get; set; }
+    }
 
 
     class MinMax
@@ -38,11 +55,7 @@ namespace Cognitio.Model
         // add curvature to number select
     }
 
-    class BuildRequirements
-    {
-        public List<ItemMinMax> ResourcesMinMax { get; set; }
-        public MinMax SpaceMinMax { get; set; }
-    }
+
 
 
     class ItemMinMax : MinMax
@@ -51,10 +64,7 @@ namespace Cognitio.Model
     }
 
 
-    class StorageModule : Module
-    {
-        public ItemContainer ItemContainer { get; set; }
-    }
+   
 
     class ProductionModule : Module
     {

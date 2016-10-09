@@ -9,10 +9,19 @@ using System.Threading.Tasks;
 
 namespace Cognitio.Model.Object
 {
+    public class DbObject
+    {
+        private string name;
+        public string Name { get { return name; } }
+    
+        protected internal DbObject(string name)
+        {
+            this.name = name;
+        }
+    }
 
     public class ItemObject : ItemTypeObject
     {
-        
         public uint Size { get; set; } // space the item takes up in storage
         public uint Weight { get; set; }
 
@@ -37,18 +46,15 @@ namespace Cognitio.Model.Object
 
 
 
-    public class ItemTypeObject
+    public class ItemTypeObject : DbObject
     {
-        private string name;
-        public string Name { get { return name; } }
         private ItemTypeObject type;
         public ItemTypeObject Type { get { return type; } }
 
         public ItemObjectList Children { get; set; }
 
-        protected internal ItemTypeObject(string name, ItemTypeObject type)
+        protected internal ItemTypeObject(string name, ItemTypeObject type) : base(name)
         {
-            this.name = name;
             this.type = type;
 			Children = new ItemObjectList();
         }

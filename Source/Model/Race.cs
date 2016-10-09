@@ -8,6 +8,11 @@ namespace Cognitio.Model
 {
     class Race : LivingStats
     {
+        
+    }
 
+    class SubRace : Race
+    {
+        // bonus stats
     }
 }

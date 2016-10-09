@@ -1,20 +1,20 @@
 
 
 Resource
-Wood
-Metal
-Mineral
-Trade & Storage
+	Wood
+	Metal
+	Mineral
+	Trade & Storage
 Order
 	Maritime
-Military & Fortification
-Law 
-Construction & Transport
-Wellfare
+	Military & Fortification
+	Law 
+	Construction & Transport
+Welfare
 	Health
 	Entertainment & Art
-Religion & Culture
-Research & Knowledge
+	Religion & Culture
+	Research & Knowledge
 
 Size / Progression of a building?
 
