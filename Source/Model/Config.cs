@@ -10,7 +10,7 @@ namespace Cognitio.Model
     {
         public static string DatabaseFilePath()
         {
-            return @"C:\Users\Ersk\cognitio.db";
+            return @"C:\Users\simonerskine\cognitio.db";
         }
     }
 }

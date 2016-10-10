@@ -9,16 +9,7 @@ using System.Threading.Tasks;
 
 namespace Cognitio.Model.Object
 {
-    public class DbObject
-    {
-        private string name;
-        public string Name { get { return name; } }
     
-        protected internal DbObject(string name)
-        {
-            this.name = name;
-        }
-    }
 
     public class ItemObject : ItemTypeObject
     {

@@ -35,9 +35,6 @@ namespace Cognitio.EditorWeb.Controllers
         [HttpPost]
         public JsonResult AddItem(AddItemTypeAjaxModel ajaxModel)
         {
-
-            
-
             string controllerModelTypeStr = "Cognitio.EditorWeb.Controllers.ItemController+" + ajaxModel.ModelType;
             Type controllerModelType = Type.GetType(controllerModelTypeStr);
             //var controllerModel = Convert.ChangeType(ajaxModel.ControllerModel, controllerModelType);
