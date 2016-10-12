@@ -54,25 +54,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Animal.cs" />
-    <Compile Include="BuildingTechnology.cs" />
-    <Compile Include="Building.cs" />
-    <Compile Include="Citizen.cs" />
-    <Compile Include="Civilisation.cs" />
+    <Compile Include="Object\Animal.cs" />
+    <Compile Include="Object\BuildingInstance.cs" />
+    <Compile Include="Object\BuildingKnowledge.cs" />
+    <Compile Include="Object\BuildingInvention.cs" />
+    <Compile Include="Object\Citizen.cs" />
+    <Compile Include="Object\Civilisation.cs" />
     <Compile Include="Config.cs" />
     <Compile Include="Db4oDatabase.cs" />
     <Compile Include="Group\ItemGroup.cs" />
     <Compile Include="Object\DbObject.cs" />
+    <Compile Include="Object\IdeaObject.cs" />
     <Compile Include="Object\ItemManager.cs" />
-    <Compile Include="LivingStats.cs" />
+    <Compile Include="Object\JobDb.cs" />
+    <Compile Include="Object\LivingStats.cs" />
     <Compile Include="Object\FoodItemObject.cs" />
     <Compile Include="Object\ItemObject.cs" />
+    <Compile Include="Object\MinMaxDb.cs" />
     <Compile Include="Object\TimeObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Race.cs" />
-    <Compile Include="Settlement.cs" />
-    <Compile Include="SkillLevel.cs" />
-    <Compile Include="Tile.cs" />
+    <Compile Include="Object\Race.cs" />
+    <Compile Include="Object\Skill.cs" />
+    <Compile Include="Object\Tile.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Control\" />

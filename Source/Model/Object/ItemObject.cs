@@ -37,7 +37,7 @@ namespace Cognitio.Model.Object
 
 
 
-    public class ItemTypeObject : DbObject
+    public class ItemTypeObject : ObjectDb
     {
         private ItemTypeObject type;
         public ItemTypeObject Type { get { return type; } }
@@ -109,6 +109,19 @@ namespace Cognitio.Model.Object
             return this.GetEnumerator();
         }
     }
+
+
+
+    private class ItemCount
+    {
+        public ItemTypeObject Item { get; set; }
+        public uint Count { get; set; }
+    }
+    private class ItemMinMax : MinMaxDb
+    {
+        public ItemTypeObject Item { get; set; }
+    }
+
 
     //public class ItemObjectList : IEnumerable
     //{

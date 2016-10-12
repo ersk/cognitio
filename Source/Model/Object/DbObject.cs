@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cognitio.Model.Object
 {
-    public class DbObject
+    public class ObjectDb
     {
         private string name;
         public string Name { get { return name; } }
@@ -14,7 +14,7 @@ namespace Cognitio.Model.Object
         private bool locked;
         public bool Locked { get { return locked; } }
 
-        protected internal DbObject(string name)
+        protected internal ObjectDb(string name)
         {
             this.name = name;
             this.locked = false;

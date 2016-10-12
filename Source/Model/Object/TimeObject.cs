@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cognitio.Model.Object
 {
-    public class TimeObject : DbObject
+    public class TimeObject : ObjectDb
     {
         private DateTime start;
         public DateTime Start { get { return start; } }
@@ -37,7 +37,7 @@ namespace Cognitio.Model.Object
 
 
     //tile, building, room
-    public class LocationObject : DbObject
+    public class LocationObject : ObjectDb
     {
 
     }
