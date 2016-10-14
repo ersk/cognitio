@@ -83,23 +83,23 @@ namespace Cognitio.Model.Object
     }
 
 
-    public class ItemObjectList : IEnumerable<ItemTypeObject>
+    public class ItemObjectList<T> : IEnumerable<T>
     {
-        List<ItemTypeObject> mylist = new List<ItemTypeObject>();
+        List<T> mylist = new List<T>();
 
-        public ItemTypeObject this[int index]
+        public T this[int index]
         {
             get { return mylist[index]; }
             set { mylist.Insert(index, value); }
         }
 
-        public void Add(ItemTypeObject item)
+        public void Add(T item)
         {
             mylist.Add(item);
             ObjectDatabase.Store(this);
         }
 
-        public IEnumerator<ItemTypeObject> GetEnumerator()
+        public IEnumerator<T> GetEnumerator()
         {
             return mylist.GetEnumerator();
         }
@@ -121,6 +121,36 @@ namespace Cognitio.Model.Object
     {
         public ItemTypeObject Item { get; set; }
     }
+
+
+
+
+    //public class ItemObjectList : IEnumerable<ItemTypeObject>
+    //{
+    //    List<ItemTypeObject> mylist = new List<ItemTypeObject>();
+
+    //    public ItemTypeObject this[int index]
+    //    {
+    //        get { return mylist[index]; }
+    //        set { mylist.Insert(index, value); }
+    //    }
+
+    //    public void Add(ItemTypeObject item)
+    //    {
+    //        mylist.Add(item);
+    //        ObjectDatabase.Store(this);
+    //    }
+
+    //    public IEnumerator<ItemTypeObject> GetEnumerator()
+    //    {
+    //        return mylist.GetEnumerator();
+    //    }
+
+    //    System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+    //    {
+    //        return this.GetEnumerator();
+    //    }
+    //}
 
 
     //public class ItemObjectList : IEnumerable
