@@ -1,5 +1,20 @@
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Resource
 	Wood
 	Metal
@@ -34,6 +49,9 @@ Erskine Lumberjack Hut (self named)
 		Time
 		Max Workers
 		Space
+		Biome requirements
+			Trees for lumber? (or is this input?)
+			Water for sawmill?
 	Usage
 		Job Types
 			Profession
@@ -44,8 +62,12 @@ Erskine Lumberjack Hut (self named)
 				Resource
 				Count
 			Job slots
-		Storage (one for input, one for output?)
+			ProcessTime
+		Storage
+			Input
+			Output
 	Culture
+		of the inventor/designer
 
 
 Building Space
@@ -53,6 +75,8 @@ Building Space
 	Warehouse 25
 	Farm 200
 building space removes green land -> decreases morale
+space may be limited in mountainous or forested regions
+forested regions need to be deforestised to create space
 
 
 
@@ -100,13 +124,16 @@ Carpenters’ Workshop
 
 Metal
 
-Smithy
-	Weaponsmith
-	Toolsmithy
+Smithy (weaponry, armoury, toolary)
+	Weaponsroom
+		Weaponsmith
+	Tools room
+		Toolsmithy
+	Armour Room
+		Armourer
 Forge
 	Forge Operator
-Armoury
-	Armourer 
+
 Smelter
 	Smelter
 Furnace
@@ -115,9 +142,14 @@ Toolmakers
 	Toolmaker
 
 Mine
-	Miner
-	Cart Puller
-	Demolition Expert
+	Miners Rest room
+		Miner
+	Cart Store room
+		Cart Puller
+	Demolition Store room
+		Demolition Expert
+			needs explosives
+			explosives -> faster mining
 
 
 Mineral
@@ -296,6 +328,7 @@ Architects’ Office
 
 
 
+
 Health
 
 Dairy Farm (Cows) 	-> Beef, Milk
@@ -361,14 +394,22 @@ Training
 
 Surgery
 Clinic
+Pharmacy?
 Hospital - Wellbeing / Healing
 Bathing
 Almshouse 
 	For poor people
 Opticians
-	Optician
-		Output -> Morale
+	Checkup room
+		Optician
+			Output -> Morale
 
+Hairdressers / Barbers
+		Cutting room
+			Hairdresser/Barber
+Dentist
+	Dental Room
+		Dentist
 
 
 
@@ -383,10 +424,15 @@ Temple
 Cemetery (religion)
 	Undertaker
 	Grave digger
+Burial Chamber
+Pyramid
+Burning at the stake
+Drowning witches
 
 
 
 Beacon - Communication / Tower
+Messenger Horses (stables?)
 Homing Loft (pigeon)
 
 Noria
@@ -399,6 +445,7 @@ Research & Knowledge
 
 School
 	Teacher 
+College
 University
 	Professor
 Research Facility
@@ -407,6 +454,7 @@ Research Facility
 Library
 	Librarian (Books > Knowlege)
 Laboratory 
+	Scientist
 
 
 
